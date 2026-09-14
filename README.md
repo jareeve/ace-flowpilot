@@ -1,25 +1,25 @@
-# ace-bob
-This repository provides IBM Bob Shell guidance for IBM App Connect Enterprise (ACE) Toolkit users. It combines:
-- setup instructions for running IBM Bob Shell inside ACE Toolkit
-- focused Bob skills for creating and explaining ACE artifacts
+# ace-flowpilot
+This repository provides skill guidance for IBM App Connect Enterprise (ACE) Toolkit users. It combines:
+- setup instructions for running the ace-flowpilot skill inside ACE Toolkit
+- focused skills for creating and explaining ACE artifacts
 - shared ACE reference material for projects, node types, policies, ESQL, and JavaCompute
 
 ## Who this repository is for
-Use this repository if you want IBM Bob Shell to help with ACE Toolkit assets such as:
+Use this repository if you want your AI Agent (such as IBM Bob Shell or GitHub Copilot) to help with ACE Toolkit assets such as:
 - message flows (`.msgflow`)
 - ESQL (`.esql`)
 - JavaCompute classes (`.java`)
 - connector-based flows and related policy files
 
 ## Quick start
-1. Install IBM Bob Shell.
+1. Install your AI Agent (such as IBM Bob Shell or GitHub Copilot)
 2. Configure ACE Toolkit to launch IBM Bob Shell in your Eclipse workspace.
-3. Clone this repository into the `.bob` folder in that workspace.
+3. Clone this repository into the `.bob` folder in that workspace
 4. Use the skills under [`skills/`](skills) as the canonical ACE guidance.
 
 ## What this repository provides
-- ACE Toolkit and IBM Bob Shell setup guidance
-- focused Bob skills under [`skills/`](skills)
+- ACE Toolkit setup guidance
+- focused ACE skills under [`skills/`](skills)
 - shared ACE guidance under [`skills/shared/`](skills/shared)
 - connector-specific guidance under [`skills/shared/connectors/`](skills/shared/connectors)
 - legacy root-level compatibility stubs for earlier connector file paths
@@ -77,9 +77,9 @@ The ACE Toolkit runs on Windows, Linux, or macOS. You can find detailed instruct
 ## Installing the ACE Bob skills into `.bob`
 When operating IBM Bob Shell in the ACE Toolkit, the earlier configuration steps target your ACE Toolkit Eclipse workspace as the IBM Bob project root directory. To make these skills available for IBM Bob Shell in this context, navigate to this ACE Toolkit Eclipse workspace and, if it does not already exist, create a folder called `.bob`.
 
-If you want to use IBM Bob across multiple ACE Toolkit workspaces, you might prefer to define ACE skills globally in your user's home directory. Based on current experience, locating the skill repository in the `.bob` folder within your Toolkit workspace improves the chances of Bob being able to find it and use it consistently.
+If you want to use IBM Bob across multiple ACE Toolkit workspaces, you might prefer to define ACE skills globally in your user's home directory. Based on current experience, it is best to locate the skill repository in the `.bob/skills` folder within your Toolkit workspace. This improves the chances of IBM Bob being able to find it and use it consistently.
 
-Clone this repository into the `.bob` folder of your ACE Toolkit workspace as shown below:
+Clone this repository into the `.bob/skills` folder of your ACE Toolkit workspace as shown below:
 
 ![image](Images/ACE_Bob10.png)
 
