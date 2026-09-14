@@ -14,6 +14,11 @@ Use this document for generic message flow creation and review before consulting
 - Every node added to a message flow must use the exact validated `xmi:type` value for that node.
 - Do not invent namespace prefixes or node type names.
 - Do not rely on old example `.msgflow` files as the source of truth for `xmi:type`.
+- For each node type used in a message flow, you must declare a namespace in the `<ecore:EPackage>` element and then use the declared prefix in the node's `xmi:type` attribute
+- For example, in `node-types.md` the HTTP Input node → namespace prefix of `ComIbmWSInput.msgnode`
+  - Node type reference: "namespace prefix of `ComIbmWSInput.msgnode`"
+  - Namespace declaration: `xmlns:ComIbmWSInput.msgnode="ComIbmWSInput.msgnode"`
+  - xmi:type usage: `xmi:type="ComIbmWSInput.msgnode:FCMComposite_1"`
 - Validate node type mappings against the ACE Message Flow schema for the relevant ACE version.
 - Within the .msgflow use a root tag name of `ecore:EPackage`
 - Within the `ecore:EPackage` element, the .msgflow should always carry the following hardcoded attribute values `xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility"`
