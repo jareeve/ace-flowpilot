@@ -45,10 +45,12 @@ Use the minimum set of nodes required to satisfy the user's request.
 If a node requires a value that the user has not provided, ask for it unless there is an obvious safe default.
 For example:
 - MQ Input nodes require a queue name.
+- HTTP Input nodes require a URLSpecifier whose value starts with a leading `/` character
 
 ## Validation
 Before returning generated `.msgflow` content:
 - confirm the node types are valid
+- you MUST read the example message flow in an application project [`./ExampleApplication/Example.msgflow`]
 - confirm connector-specific rules were applied where relevant
 - confirm any required supporting artifacts were also created or identified
 - apply the common checks in [`skills/shared/review-checklist.md`](review-checklist.md)

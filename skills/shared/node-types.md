@@ -97,6 +97,7 @@ When you encounter a message flow node property name that you don't recognize:
 > **⚠ Naming trap:** The ACE Toolkit UI labels these nodes "HTTP Input", "HTTP Reply", and "HTTP Request", but the underlying `.msgnode` filenames use the `ComIbmWS*` prefix — **not** `ComIbmHTTP*`. Always use the `ComIbmWS*` variants listed here. Using `ComIbmHTTPInput` or `ComIbmHTTPReply` will cause "Message node cannot be located" errors and incorrect icons at runtime.
 
 - HTTP Input node → namespace prefix of `ComIbmWSInput.msgnode`
+  - **Note:** HTTP Input nodes require a URLSpecifier whose value starts with a leading `/` character
 - HTTP Reply node → namespace prefix of `ComIbmWSReply.msgnode`
 - HTTP Request node → namespace prefix of `ComIbmWSRequest.msgnode`
   - **Note:** HTTP Request nodes require a `URLSpecifier` attribute that defines the Web Service URL that should be invoked. If not provided, ask the user for their preference.
