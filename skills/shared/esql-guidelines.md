@@ -166,6 +166,8 @@ Always use `FIELDVALUE()` when reading leaf values from an XMLNSC tree for outpu
 
 ## Validity guardrails
 - Do not invent ESQL built-in functions or statements.
+- There is no `DOUBLE` data type in ESQL. ESQL does have `DECIMAL`, `FLOAT` and `INTEGER` numeric data types.
+- There is no `RANDOM` function in ESQL although there is a `RAND` function.
 - `CREATE OUTPUTROOT DOMAIN(...)` is not a valid ESQL statement — do not generate it.
 - `SET OutputRoot.JSON.Data = NULL` does not correctly establish the JSON domain — use `CREATE LASTCHILD OF OutputRoot DOMAIN 'JSON'` + `CREATE FIELD OutputRoot.JSON.Data` instead.
 - Do not invent JSON scalar type syntax such as `JSON.String`, `JSON.Number`, or `JSON.Boolean`.
