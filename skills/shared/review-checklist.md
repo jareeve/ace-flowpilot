@@ -43,6 +43,7 @@ encoding/<project>=UTF-8
 - Every scalar read from the XMLNSC tree uses `FIELDVALUE()`.
 - Output domain is initialised with `CREATE LASTCHILD OF OutputRoot DOMAIN 'JSON'` + `CREATE FIELD OutputRoot.JSON.Data` — not `SET OutputRoot.JSON.Data = NULL`.
 - `CREATE OUTPUTROOT DOMAIN(...)` does not appear anywhere — it is not valid ACE ESQL syntax.
+- There is no such built-in ESQL function named `RANDOM` although there is a built-in function named `RAND`
 
 ### Simplicity
 - The flow topology is the minimum required to satisfy the request. Do not add Compute nodes, ESQL files, or transformation logic unless the user explicitly asked for transformation. A direct wire from Input to Reply is correct for a pass-through or echo pattern.
