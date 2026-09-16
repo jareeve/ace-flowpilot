@@ -14,8 +14,8 @@ Use this repository if you want your AI Agent (such as IBM Bob Shell or GitHub C
 ## Quick start
 1. Install your AI Agent (such as IBM Bob Shell or GitHub Copilot)
 2. Configure ACE Toolkit to launch IBM Bob Shell in your Eclipse workspace.
-3. Clone this repository into the `.bob` folder in that workspace
-4. Use the skills under [`skills/`](skills) as the canonical ACE guidance.
+3. Clone this repository into the `.bob\skills` folder in that workspace
+4. Set up the IBM Bob Shell as a Terminal option in ACE Toolkit (instructions below)
 
 ## What this repository provides
 - ACE Toolkit setup guidance
