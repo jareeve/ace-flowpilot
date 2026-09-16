@@ -333,6 +333,8 @@ encoding/<project>=UTF-8
 
 ## `restapi.descriptor` Requirements for a REST API project
 ** Use the following complete `restapi.descriptor` in the project root ** Replace `<ProjectName>` with the actual project folder name.
+- For each operation in a REST API you must add an associated `ns2:operations` element.
+  - For example for an operation named `createWidget` you must add `<ns2:operation name="createWidget" implementation="createWidget.subflow"/>`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -341,6 +343,8 @@ encoding/<project>=UTF-8
     <ns2:errorHandlers/>
 </ns2:restapiDescriptor>
 ```
+
+
 
 ## Example REST API project 
 - When creating a REST API project note the example [`skills/shared/ExampleAPI`](ExampleAPI)

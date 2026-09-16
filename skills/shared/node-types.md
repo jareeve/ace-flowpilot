@@ -86,7 +86,9 @@ When you encounter a message flow node property name that you don't recognize:
 
 ## Compute and transformation nodes
 - Compute node → namespace prefix of `ComIbmCompute.msgnode`
-  - **Note:** Compute nodes require a `computeExpression` which takes a value like `"esql://routine/#MessageFlowName_Compute.Main"`  where `MessageFlowName_Compute` is the name of the MODULE in the associated ESQL file, and `Main` is the name of the FUNCTION.
+  - **Note:** Compute nodes require a `computeExpression` attribute which has a format like `computeExpression="esql://routine/#MyExampleModuleName.Main"` where MyExampleModuleName is the name of the Compute MODULE in the `.esql` file and `Main` is the name of the FUNCTION inside the relevant Compute MODULE in the `.esql` file.
+  - This example is correct for situations where the `.esql` file is located in the root of its Project (which is most common). Note that there is a leading `#` character before the module name. 
+  - Note that IF the `.esql` file is located in a Broker Schema within the Project (in terms of the files held on disk, if a `.esql` file is inside a Broker Schema this means the file is located in a matching subdirectory of the project), then the computeExpression attribute must also contain a reference to the Broker Schema name before the `#` character. For example considering `computeExpression="esql://routine/com.dev.myschema#MyExampleModuleName.Main"` this means that the `.esql` file (which contains the Compute module MyExampleModuleName) is located in the Broker Schema `com.dev.myschema`. This means that the `.esql` file should be located in its project inside a subdirectory of `com/dev/myschema`. Also note that IF the `.esql` file is located in a broker Schema, at the top of the file content should be a Broker Schema declaration `BROKER SCHEMA com.dev.myschema`
 - Java Compute node → namespace prefix of `ComIbmJavaCompute.msgnode`
 - .NET Compute node → namespace prefix of `ComIbmDotNetCompute.msgnode`
 - JSONata Mapping node → namespace prefix of `ComIbmJSONataMapping.msgnode`

@@ -28,6 +28,8 @@ Use this skill when the user asks to create or modify ACE Toolkit Application pr
 - If the request also includes message flow or Compute implementation work, continue with the relevant implementation skill after establishing the required project scaffolding.
 - If version-specific behavior matters and the ACE version is not known, ask the user.
 - If creating a Shared Library with subflows: subflows are placed in a named subdirectory (broker schema), NOT in the project root
+- By default, do not use BROKER SCHEMA declarations in ESQL files unless the user explicitly requests schema organization or the files are being placed in subdirectories
+- When creating ESQL files in the project root, omit the BROKER SCHEMA declaration and use the simple compute expression format: `esql://routine/#ModuleName.FunctionName`
 
 ## Output requirements
 - Create or update the requested project scaffolding artifacts.
