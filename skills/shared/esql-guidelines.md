@@ -6,6 +6,50 @@ This document defines ACE-focused guidance for creating and refining ESQL used b
 ## When to use
 Use this document when generating or reviewing `.esql` files for ACE Compute nodes.
 
+## BROKER SCHEMA usage
+
+**Default  behavior: Do not use BROKER SCHEMA declarations unless explicitly required.**
+
+### When NOT to use BROKER SCHEMA
+- When the `.esql` file is placed in the project root directory
+- When the user has not explicitly requested a specific schema organization
+- For simple projects with a small number of ESQL files
+
+### When to use BROKER SCHEMA
+- Only when the user explicitly requests it
+- When placing ESQL files in subdirectories for organizational purposes
+- When the `.esql` file is in a Shared Library project with subdirectory structure
+
+### File placement rules
+- **No BROKER SCHEMA**: Place `.esql` file in project root
+  - File: `ProjectName/ModuleName.esql`
+  - ESQL: No `BROKER SCHEMA` declaration
+  - Compute node reference: `esql://routine/#ModuleName.FunctionName`
+  
+- **With BROKER SCHEMA**: Place `.esql` file in subdirectory matching schema
+  - File `ProjectName/com/ibm/example/ModuleName.esql`
+  - ESQL: `BROKER SCHEMA com.ibm.example`
+  - Compute node reference: `esql://routine/com.ibm.example#ModuleName.FunctionName`
+
+### Example without BROKER SCHEMA (default)
+CREATE COMPUTE MODULE MyCompute
+    CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+	    -- implementation here
+	    RETURN TRUE;
+	END;
+END MODULE;
+
+Compute node property: `computeExpression="esql://routine/#MyCompute.Main"
+
+## Compute node expression formats
+The `computeExpression` property in a Compute node must match the ESQL file structure:
+
+| ESQL Structure | computeExpression Format | Example |
+|---|---|---|
+| No BROKER SCHEMA | `esql://routine/#Module.Function` | `esql://routine/#EmployeeAPI_Compute.CreateEmployee` |
+| With BROKER SCHEMA | `esql://routine/schema.path#Module.Function` | `esql://routine/com.ibm.example#EmployeeAPI_Compute.CreateEmployee` |
+
 ## Performance and tree navigation
 - Declare `REFERENCE` variables when navigating heavily nested logical trees to reduce repeated navigation cost.
 - Avoid unnecessary full tree copying when a change is limited to a small part of the message tree.

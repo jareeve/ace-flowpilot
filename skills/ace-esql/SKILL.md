@@ -17,6 +17,9 @@ Use this skill when the user asks to create or modify `.esql` files for ACE Comp
 2. [`skills/shared/review-checklist.md`](../shared/review-checklist.md)
 
 ## Critical rules
+- Do not add BROKER SCHEMA declarations unless explicitly requested by the user or required by file placement in subdirectories
+- For ESQL files in the project root, use the simple module format without BROKER SCHEMA
+- Match the computeExpression format in .msgflow files to the ESQL file structure (with or without BROKER SCHEMA)
 - Generate ACE-compatible ESQL.
 - Prefer simple, efficient, and maintainable ESQL.
 - Avoid inventing nonexistent ESQL functions.
